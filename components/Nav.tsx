@@ -8,35 +8,49 @@ import NavStyles from './styles/NavStyles';
 interface aProps {
   readonly active: boolean;
 }
-const SelectedA = styled.a<aProps>`
-  color: ${props =>
-    props.active ? props.theme.bluegreen : props.theme.dullbluegreen} !important;
-  text-shadow: ${props =>
-    props.active
-      ? props.theme.textShadow({ x: '2px', y: '2px', blur: '0px' })
-      : props.theme.textShadow({ x: '0px', y: '0px', blur: '1px' })};
+
+const NavItem = styled.div<aProps>`
+  position: relative;
+  z-index: 2;
+  margin: auto 0;
+  a {
+    color: ${props =>
+      props.active ? props.theme.primary_foreground : props.theme.secondary_heading_color} !important;
+    background: ${props => props.active && props.theme.primary_heading_color};
+    border-radius: 10px;
+  }
+  @media (max-width: 1300px) {
+    margin: 0;
+    text-align: center;
+  }
 `;
 
 type NavProps = {
-    pathname?: string;
-}
-const Nav = ({pathname}: NavProps) => {
-  console.log(pathname);
-  console.log(pathname === '/projects');
+  pathname?: string;
+};
+const Nav = ({ pathname }: NavProps) => {
   return (
     <NavStyles>
-      <Link href="/projects">
-        <SelectedA active={pathname === '/projects'}>Projects</SelectedA>
-      </Link>
-      <Link href="/blog">
-        <SelectedA active={pathname === '/blog'}>Blog</SelectedA>
-      </Link>
-      <Link href="/about">
-        <SelectedA active={pathname === '/about'}>About</SelectedA>
-      </Link>
-      <Link href="/contact">
-        <SelectedA active={pathname === '/contact'}>Contact</SelectedA>
-      </Link>
+      <NavItem active={pathname === '/projects'}>
+        <Link href="/projects">
+          <a href="">Projects</a>
+        </Link>
+      </NavItem>
+      <NavItem active={pathname === '/blog'}>
+        <Link href="/blog">
+          <a href="">Blog</a>
+        </Link>
+      </NavItem>
+      <NavItem active={pathname === '/about'}>
+        <Link href="/about">
+          <a href="">About</a>
+        </Link>
+      </NavItem>
+      <NavItem active={pathname === '/contact'}>
+        <Link href="/contact">
+          <a href="">Contact</a>
+        </Link>
+      </NavItem>
     </NavStyles>
   );
 };

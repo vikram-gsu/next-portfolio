@@ -2,50 +2,49 @@
 import styled from 'styled-components';
 
 const InfoBoxStyles = styled.div`
-.box {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: ${props => props.theme.primary_background};
     border-radius: 0.25em;
     padding: 2em 1.5em;
     margin: 0.75em;
     text-decoration: none;
     border: 0.1em solid #cccccc;
-    color: black;
+    color: ${props => props.theme.primary_foreground};
     text-align: left;
-  }
+
   
-  .box:hover {
-    border: 1px solid #CD3D73;
-  }
+  // :hover {
+  //   border: 1px solid #CD3D73;
+  // }
   
-  .box h3 {
+  h3 {
     margin-top: 0.5em;
     padding-left: 0;
   }
   
-  .box .learnMore {
+  .learnMore {
     padding-top:1em;
   }
-  .box .links {
+  .links {
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
     padding-top:1em;
   }
   
-  .box:hover h3 {
-    color: #CD3D73;
-    font-style: italic;
-  }
+  // :hover h3 {
+  //   color: #CD3D73;
+  //   font-style: italic;
+  // }
   
-  .box .links a:hover {
+  .links a:hover {
     font-style: italic;
     color: rgb(26, 122, 212);
   }
   
-  .box .links a {
+  .links a {
     text-decoration: none;
     padding:0.5em;
     width: 100%;
@@ -56,12 +55,12 @@ const InfoBoxStyles = styled.div`
     text-align: center;
   }
   
-  .box h3 +ul {
+  h3 +ul {
     list-style-type: circle;
     padding-left:1em;
     margin:0;
   }
-  .box h3 + ul > li:hover {
+  h3 + ul > li:hover {
     
   }
 `;

@@ -7,7 +7,7 @@ export interface MediumItemProps {
   title: string;
   createdAt: string;
   subtitle: string;
-  image: string;
+  image: string | null;
   url: string;
 }
 
@@ -29,11 +29,6 @@ const MediumItem = ({
           <div className={'levelLeft'}>
             <span>{moment(createdAt).format('MMM Do')} </span>
             <span>{moment(createdAt).format('YYYY')}</span>
-          </div>
-          <div className={'levelRight'}>
-            <a className={'button'} target="_blank" href={url}>
-              Read on Medium
-            </a>
           </div>
         </nav>
       </div>

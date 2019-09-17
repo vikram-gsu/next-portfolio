@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import Box from './styles/Box';
 
 const ProjectBox = styled.img`
-  object-fit: cover;
-  object-align: top;
-  width: 80%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  object-fit: fill;
   margin: 0 auto;
-  // filter: blur(10px);
+  filter: blur(5px);
 `;
 
 interface LinkButtonBoxProps {
@@ -21,9 +22,6 @@ interface LinkButtonBoxProps {
 }
 const LinkButtonBox = (props: LinkButtonBoxProps) => (
   <Box href={props.applicationUrl} target="_blank" id={props.id}>
-    {props.projectImageUrl && (
-      <ProjectBox src={props.projectImageUrl} alt="Project image"></ProjectBox>
-    )}
     <div>{props.children}</div>
   </Box>
 );

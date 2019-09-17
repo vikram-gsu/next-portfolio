@@ -5,6 +5,7 @@ import Link from 'next/link';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import Nav from './Nav';
+import Switch from './Switch';
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start();
@@ -22,7 +23,7 @@ const Logo = styled.h1`
   box-shadow: ${props => props.theme.boxShadow}; 
   a {
       padding: 0.5rem 5rem;
-      background: ${props => props.theme.bluegreen};
+      background: ${props => props.theme.primary_heading_color};
       color: white;
       text-transform: uppercase;
       text-decoration: none;
@@ -38,12 +39,13 @@ const Logo = styled.h1`
 `;
 
 const StyledHeader = styled.header`
+  background: ${props => props.theme.offwhite};
   .bar {
-    border-bottom: 10px solid ${props => props.theme.black};
+    border-bottom: 10px solid ${props => props.theme.secondary_background};
     display: grid;
-    grid-template-columns: auto 1fr;
-    justify-content: space-between;
-    align-items: stretch;
+    grid-template-columns: auto 1fr 1fr;
+    justify-items: end;
+    align-items: center;
     @media (max-width: 1300px) {
       grid-template-columns: 1fr;
       justify-content: center;
@@ -52,15 +54,17 @@ const StyledHeader = styled.header`
   .sub-bar {
     display: grid;
     grid-template-columns: 1fr auto;
-    border-bottom: 1px solid ${props => props.theme.lightgrey};
+    border-bottom: 1px solid ${props => props.theme.secondary_background};
   }
 `;
 
 type HeaderProps = {
-    pathname?: string
+    pathname?: string,
+    themeSelected: boolean,
+    handleThemeChange: (e:React.ChangeEvent) => void
 }
 
-const Header = ({pathname}: HeaderProps) => (
+const Header = ({pathname, themeSelected, handleThemeChange}: HeaderProps) => (
   <StyledHeader>
     <div className="bar">
       <Logo>
@@ -68,6 +72,7 @@ const Header = ({pathname}: HeaderProps) => (
           <a>Vikram Pareddy</a>
         </Link>
       </Logo>
+      <Switch checked={themeSelected} handleThemeChange={handleThemeChange} />
       <Nav pathname={pathname}/>
     </div>
     {/* <div className="sub-bar">

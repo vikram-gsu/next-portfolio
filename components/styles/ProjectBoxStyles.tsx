@@ -1,95 +1,102 @@
-
 import styled from 'styled-components';
+import {ThemeType} from '../types/common';
 
-const ProjectBoxStyles = styled.div`
-/* 
-.box {
-  display: block;
-  top: 0px;
-  position: relative;
-  max-width: 16em;
-  background-color: #444;
-  border: 0.1em solid #000;
-  color: white;
-  border-radius: 0.25em;
-  padding: 2em 1.5em;
-  margin: 0.75em;
-  text-decoration: none;
-  overflow: scroll;
-  text-align: left;
-} */
-.box {
+const ProjectBoxStyles = styled.a`
+    position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
-    border: 0.1em solid #cccccc;
-    color: black;
+    justify-content: end;
+    // background-color: #ffffff;
+    border: ${props => props.theme.border};
+    color: ${props => props.theme.primary_foreground};
     border-radius: 0.25em;
-    padding: 2em 1.5em;
+    // padding: 2em 1.5em;
     margin: 0.75em;
     text-decoration: none;
-    text-align: left;
-    justify-content: center;
-  }
-  
-  .box:hover {
-    border: 1px solid #CD3D73;
-  }
-  
-  .box h3 {
-    margin-top: 0.5em;
-    padding-left: 0;
-  }
-  
-  .box .learnMore {
-    padding-top:1em;
-  }
-  .box .links {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding-top:1em;
-  }
-  
-  .box:hover h3 {
-    color: #CD3D73;
-    font-style: italic;
-  }
-  
-  .box .links a:hover {
-    font-style: italic;
-    color: rgb(26, 122, 212);
-  }
-  /* 
-  .box .links a {
-    text-decoration: none;
-    padding:0.5em;
-    width: 100%;
-    color: rgb(26, 122, 212);
-    border: 1px solid rgb(26, 122, 212);;
-    background: #444;
-    border-radius: 10px;
     text-align: center;
-  } */
-  .box .links a {
-    text-decoration: none;
-    padding:0.5em;
-    width: 100%;
-    color: rgb(26, 122, 212);
-    border: 1px solid rgb(26, 122, 212);;
-    background: white;
-    border-radius: 10px;
-    text-align: center;
+    transition: box-shadow 0.5s, transform 0.5s;
+    // transition: scale 1s;
+
+    object-fit: contain;
+    
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      filter: blur(0.5px);
+      transition: filter 0.5s;
+    }
+    :hover {
+      box-shadow: ${props => props.theme.boxShadow};
+      transform: translateY(-2%);
+      cursor: pointer;
+      img {
+        // filter: blur(1px);
+        visibility: hidden;
+        display: none;
+      }
+
+      
+    }
+  
+  
+    h3 {
+      margin-top: 8px;
+
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      transition: text-shadow 0.5s, color 0.5s;
+      z-index: 100;
+    }
+    .projectSummary {
+      z-index: 100;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background: rgba(18,18,18,0.2);
+      box-shadow: ${props => props.theme.boxShadow};
+    }
+    
+    
+    // .learnMore {
+    //   padding-top: 1em;
+    //   display: none;
+    //   text-align: right;
+    //   transition: text-shadow 0.5s, color 0.5s;
+    //   z-index: 100;
+    // }
+      
+      // :hover .learnMore {
+      //   text-shadow: ${props => props.theme.textShadow({x:'2px', y:'2px', blur:'2px'})};
+      //   color: ${props => props.theme.bluegreen};
+      // }
+      
+  //     :hover h3 {
+  //       // color: ${props => props.theme.bluegreen};
+  // }
+  // :hover h3~span {
+  //   // color: ${props => props.theme.bluegreen};
+  // }
+  
+  .invisible {
+    visibility: hidden;
   }
   
-  .box h3 +ul {
-    list-style-type: circle;
-    padding:0;
-    margin:0;
+  .disabled {
+    color: black;
+    background: rgba(190, 190, 190, 0.541);
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
   }
-  .box h3 + ul > li:hover {
-    color: #CD3D73;
-    font-style: italic;
+  
+   .disabled:hover {
+    background: grey;
   }
 `;
 
