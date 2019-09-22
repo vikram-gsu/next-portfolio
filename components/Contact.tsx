@@ -8,13 +8,16 @@ import Link from 'next/link';
 
 const Contact = () => (
   <ContactStyles>
-    {/* <div className={styles.contact_list}> */}
+    <div className="contentHeader">
+      <h2>Contact</h2>
+    </div>
+    <div className="contact-options">
       <a href="mailto:vikram.pareddy@gmail.com" target="_blank"><Mail /></a>
       <a href="https://www.linkedin.com/in/vikrampareddy/" target="_blank"><LinkedIn /></a>
       <a href="https://www.instagram.com/vikram.reddy/" target="_blank"> <Instagram /> </a>
       <a href="https://twitter.com/vikrampareddy" target="_blank"> <Twitter /> </a>
       
-    {/* </div> */}
+    </div>
   </ContactStyles>
 )
 

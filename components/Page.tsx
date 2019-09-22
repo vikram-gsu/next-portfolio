@@ -21,7 +21,8 @@ const lightTheme: ThemeType = {
   header_background: themeConstants.offwhite,
   primary_heading_color: themeConstants.bluegreen,
   secondary_heading_color: themeConstants.dullbluegreen,
-  
+  light: themeConstants.white,
+  dark: themeConstants.black,
   maxWidth: '2000px',
   boxShadow: '0 2px 5px 0 rgba(0,0,0,0.41)',
   //   0px 0px 20px 5px rgba(0,0,0,0.2);
@@ -36,7 +37,8 @@ const darkTheme: ThemeType = {
   header_background: themeConstants.grey,
   primary_heading_color: themeConstants.bluegreen,
   secondary_heading_color: themeConstants.dullbluegreen,
-  
+  light: themeConstants.white,
+  dark: themeConstants.black,
   maxWidth: '2000px',
   boxShadow: '0 2px 5px 0 rgba(255,255,255,0.57)',
   //   0px 0px 20px 5px rgba(0,0,0,0.2);
@@ -126,6 +128,7 @@ type PageState = {
 function Page(props:PageProps) {
   const [themeSelected, toggleThemeSelected] = useState(false);
   const [theme, setTheme] = useState(darkTheme);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleThemeChange = (e: React.ChangeEvent) => {
     let { checked } = e.target as HTMLInputElement;
@@ -143,6 +146,8 @@ function Page(props:PageProps) {
           themeSelected = {themeSelected}
           pathname={pathname}
           handleThemeChange={handleThemeChange}
+          menuIsOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
         />
 
         <Inner>{children}</Inner>

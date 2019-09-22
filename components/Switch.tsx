@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SwitchStyles = styled.div`
+    padding-right: 2em;
     .react-switch-checkbox {
         visibility: hidden;
         display: none;
@@ -18,6 +19,17 @@ const SwitchStyles = styled.div`
         height: 50px;
         border-radius: 50px;
         transition: 0.5s;
+
+        @media(max-width: 1300px){
+          width: 50px;
+          height: 25px;
+          border-radius: 25px;
+        }
+        @media(max-width: 700px){
+          width: 50px;
+          height: 25px;
+          border-radius: 25px;
+        }
     }
 
     .react-switch-button {
@@ -30,12 +42,19 @@ const SwitchStyles = styled.div`
         border-radius: 45px;
         background: white;
         transition: 0.5s;
+
+        @media(max-width: 1300px){
+          width: 20px;
+          height: 20px;
+          border-radius: 20px;
+        }
     }
 
     .react-switch-checkbox:checked + .react-switch-label .react-switch-button {
         left: calc(100% - 2px);
         transform: translateX(-100%);
     }
+
 
 `;
 

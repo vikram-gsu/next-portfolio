@@ -23,7 +23,8 @@ export type ThemeType  = {
       header_background: string,
       primary_heading_color: string,
       secondary_heading_color: string,
-      
+      light: string,
+      dark: string,
       maxWidth: string,
       boxShadow: string,
       border: string,

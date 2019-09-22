@@ -33,10 +33,10 @@ const ProjectBoxStyles = styled.a`
       box-shadow: ${props => props.theme.boxShadow};
       transform: translateY(-2%);
       cursor: pointer;
-      img {
-        // filter: blur(1px);
-        visibility: hidden;
-        display: none;
+      color: ${props => props.theme.dark};
+      h3 {
+        color: ${props => props.theme.dark};
+
       }
 
       
@@ -49,7 +49,7 @@ const ProjectBoxStyles = styled.a`
       font-weight: bold;
       text-transform: uppercase;
       text-align: center;
-      transition: text-shadow 0.5s, color 0.5s;
+      // transition: text-shadow 0.5s, color 0.5s;
       z-index: 100;
     }
     .projectSummary {
@@ -60,27 +60,6 @@ const ProjectBoxStyles = styled.a`
       background: rgba(18,18,18,0.2);
       box-shadow: ${props => props.theme.boxShadow};
     }
-    
-    
-    // .learnMore {
-    //   padding-top: 1em;
-    //   display: none;
-    //   text-align: right;
-    //   transition: text-shadow 0.5s, color 0.5s;
-    //   z-index: 100;
-    // }
-      
-      // :hover .learnMore {
-      //   text-shadow: ${props => props.theme.textShadow({x:'2px', y:'2px', blur:'2px'})};
-      //   color: ${props => props.theme.bluegreen};
-      // }
-      
-  //     :hover h3 {
-  //       // color: ${props => props.theme.bluegreen};
-  // }
-  // :hover h3~span {
-  //   // color: ${props => props.theme.bluegreen};
-  // }
   
   .invisible {
     visibility: hidden;
